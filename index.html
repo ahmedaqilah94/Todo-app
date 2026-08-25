@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.scss" />
+
+    <title>Frontend Mentor | Todo app</title>
+  </head>
+  <body>
+    <main class="app">
+      <div class="container">
+        <header class="container__header">
+          <h1 class="container__title">TODO</h1>
+          <button class="container__theme-toggle" type="button"></button>
+        </header>
+        <div class="input-bar">
+          <button type="button" class="input-bar__checkbox checkbox"></button>
+          <input
+            type="text"
+            class="input-bar__task-input"
+            placeholder="Create a new todo"
+            id="task-input"
+          />
+        </div>
+        <div class="tasks-section">
+          <ul class="tasks"></ul>
+          <div class="status-bar">
+            <p class="status-bar__label">
+              <span class="status-bar__items-left-count">0</span> items left
+            </p>
+            <button class="status-bar__clear-completed">Clear Completed</button>
+          </div>
+        </div>
+        <div class="filter-links">
+          <button
+            class="filter-links__link filter-links__link--isActive all-tasks"
+            type="button"
+          >
+            All
+          </button>
+          <button class="filter-links__link active-tasks" type="button">
+            Active
+          </button>
+          <button class="filter-links__link completed-tasks" type="button">
+            Completed
+          </button>
+        </div>
+        <p class="drag-paragraph">Drag and drop to reorder list</p>
+      </div>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Ahmed Aqilah</a>.
+    </footer>
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>
