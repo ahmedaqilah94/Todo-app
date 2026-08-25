@@ -29,8 +29,15 @@ export const initDataOnStartup = () => {
   fetchData("lightTheme") && toggleTheme();
   renderTaskList(fetchData("tasks"));
 };
-
-export let taskId = 0;
+export const getLastTaskId = () => {
+  let countId = 0;
+  const tasks = fetchData("tasks");
+  tasks.forEach(() => {
+    countId++;
+  });
+  return countId;
+};
+export let taskId = getLastTaskId();
 export const addTask = () => {
   taskId++;
   const inputValue = inputElement.value;
