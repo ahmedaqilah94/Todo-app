@@ -19,13 +19,15 @@
   --Purple-700: hsl(233, 14%, 35%);
   --Purple-800: hsl(237, 14%, 26%);
 
-  --dark-theme-img: url("./images/bg-desktop-dark.jpg");
-  --light-theme-img: url("./images/bg-desktop-light.jpg");
+  --dark-theme-desktop-img: url("./images/bg-desktop-dark.jpg");
+  --light-theme-desktop-img: url("./images/bg-desktop-light.jpg");
+
+  --dark-theme-mobile-img: url("./images/bg-mobile-dark.jpg");
+  --light-theme-mobile-img: url("./images/bg-mobile-light.jpg");
 
   --dark-toggle-icon: url("./images/icon-sun.svg");
   --light-toggle-icon: url("./images/icon-moon.svg");
 
-  --bg-img: var(--dark-theme-img);
   --toggle-icon: var(--dark-toggle-icon);
   --border-color: var(--Purple-800);
   --bg-color: var(--Navy-950);
@@ -40,7 +42,7 @@
   --transition-time: all 0.3s;
 }
 .light-theme {
-  --bg-img: var(--light-theme-img);
+  --bg-img: var(--light-theme-mobile-img);
   --toggle-icon: var(--light-toggle-icon);
   --bg-color: var(--Gray-50);
   --bg-tasks-color: var(--Gray-50);
@@ -90,7 +92,7 @@ body {
 .app {
   width: 100%;
   background-color: var(--bg-color);
-  background-image: var(--bg-img);
+  background-image: var(--dark-theme-mobile-img);
   background-size: 100% auto;
   background-repeat: no-repeat;
   display: flex;
@@ -270,7 +272,14 @@ body {
 /*
 -------------desctop responsive design-------------
 */
+
 @media (min-width: 45rem) {
+  .light-theme {
+    --bg-img: var(--light-theme-desktop-img);
+  }
+  .app {
+    background-image: var(--dark-theme-desktop-img);
+  }
   .container {
     width: 100%;
     max-width: 540px;
