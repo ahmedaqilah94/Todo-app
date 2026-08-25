@@ -53,7 +53,7 @@ export const renderTaskList = (tasks) => {
     taskList += `<li draggable="true" class="task" id="${task.id}">
               <button type="button" data-num="${task.id}" class="task__checkbox checkbox ${task.isCompleted ? "checked" : ""}" ></button>
               <span class="task__text ${task.isCompleted ? "task__text--completed" : ""}">${task.value}</span>
-              <img src="./images/icon-cross.svg" class="task__delete" data-num="${task.id}" alt="delete icon" />
+              <img src="./images/icon-cross.svg" class="task__delete" data-num="${task.id}" alt="delete icon"/>
             </li>`;
   });
   taskListElement.innerHTML = taskList;
