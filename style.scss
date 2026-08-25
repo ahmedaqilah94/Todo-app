@@ -5,13 +5,11 @@
     hsl(192, 100%, 67%),
     hsl(280, 87%, 65%)
   );
-
   --Navy-850: hsl(235, 19%, 35%);
   --Purple-300: hsl(234, 39%, 85%);
   --Gray-50: hsl(0, 0%, 98%);
   --Gray-300: hsl(233, 11%, 84%);
   --Gray-600: hsl(236, 9%, 61%);
-
   --Navy-950: hsl(235, 21%, 11%);
   --Navy-900: hsl(235, 24%, 19%);
   --Purple-hover-100: hsl(236, 33%, 92%);
@@ -28,6 +26,9 @@
   --dark-toggle-icon: url("./images/icon-sun.svg");
   --light-toggle-icon: url("./images/icon-moon.svg");
 
+  --mobile-bg-img: var(--dark-theme-mobile-img);
+  --desctop-bg-img: var(--dark-theme-desktop-img);
+
   --toggle-icon: var(--dark-toggle-icon);
   --border-color: var(--Purple-800);
   --bg-color: var(--Navy-950);
@@ -41,8 +42,10 @@
   --shadow: 0px 0px 100px 0 rgba(0, 0, 0, 0.1);
   --transition-time: all 0.3s;
 }
+
 .light-theme {
-  --bg-img: var(--light-theme-mobile-img);
+  --mobile-bg-img: var(--light-theme-mobile-img);
+  --desctop-bg-img: var(--light-theme-desktop-img);
   --toggle-icon: var(--light-toggle-icon);
   --bg-color: var(--Gray-50);
   --bg-tasks-color: var(--Gray-50);
@@ -68,6 +71,7 @@ ul {
 button,
 input {
   font: inherit;
+
   background-color: inherit;
   border: 0;
 }
@@ -92,7 +96,7 @@ body {
 .app {
   width: 100%;
   background-color: var(--bg-color);
-  background-image: var(--dark-theme-mobile-img);
+  background-image: var(--mobile-bg-img);
   background-size: 100% auto;
   background-repeat: no-repeat;
   display: flex;
@@ -274,11 +278,8 @@ body {
 */
 
 @media (min-width: 45rem) {
-  .light-theme {
-    --bg-img: var(--light-theme-desktop-img);
-  }
   .app {
-    background-image: var(--dark-theme-desktop-img);
+    background-image: var(--desctop-bg-img);
   }
   .container {
     width: 100%;
@@ -295,6 +296,7 @@ body {
       font-size: 2rem;
     }
   }
+  //------------------------
   .input-bar {
     margin-top: 2.5rem;
     padding: 0 1.3rem;
@@ -310,7 +312,7 @@ body {
     width: 28px;
     height: 28px;
   }
-
+  //--------------------------------
   .tasks-section {
     margin-top: 1.5rem;
   }
@@ -335,7 +337,7 @@ body {
       }
     }
   }
-
+  //----------------------------
   .status-bar {
     min-height: 3.1rem;
     padding: 0 1.5rem;

@@ -9,6 +9,7 @@ import {
   taskListElement,
 } from "./elements";
 import { initTasklistener } from "./eventListeners";
+import deleteIcon from "../images/icon-cross.svg";
 
 export const fetchData = (key) => {
   const data = localStorage.getItem(key);
@@ -53,7 +54,7 @@ export const renderTaskList = (tasks) => {
     taskList += `<li draggable="true" class="task" id="${task.id}">
               <button type="button" data-num="${task.id}" class="task__checkbox checkbox ${task.isCompleted ? "checked" : ""}" ></button>
               <span class="task__text ${task.isCompleted ? "task__text--completed" : ""}">${task.value}</span>
-              <img src="./images/icon-cross.svg" class="task__delete" data-num="${task.id}" alt="delete icon"/>
+              <img src=${deleteIcon} class="task__delete" data-num="${task.id}" alt="delete icon"/>
             </li>`;
   });
   taskListElement.innerHTML = taskList;
@@ -83,12 +84,12 @@ export const deleteTask = (icon) => {
 export const toggleTask = (box) => {
   box.classList.toggle("checked");
   box.nextElementSibling.classList.toggle("task__text--completed");
-
   let tasks = fetchData("tasks");
   const id = box.dataset.num;
   const curentTask = tasks.find((task) => task.id == id);
   curentTask.isCompleted = !curentTask.isCompleted;
   saveToDataB("tasks", tasks);
+  renderTaskList(tasks);
 };
 
 export const filterAllTasks = () => {
@@ -123,7 +124,7 @@ export const getItemsLeftCount = () => {
   const tasks = fetchData("tasks") || [];
   let count = 0;
   tasks.forEach((task) => {
-    if (!task.isActive) count++;
+    if (!task.isCompleted) count++;
   });
   leftCountLabel.textContent = count;
 };
