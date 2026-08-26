@@ -126,9 +126,7 @@ body {
   }
 }
 //------------------------------
-.container {
-  margin: 5rem 0 3rem;
-}
+
 .input-bar {
   min-width: 100%;
   background-color: var(--bg-tasks-color);
@@ -286,7 +284,7 @@ body {
   .container {
     width: 100%;
     max-width: 540px;
-    margin-top: 4.5rem;
+    margin: 5rem 0 3rem;
 
     &__theme-toggle {
       width: 26px;
