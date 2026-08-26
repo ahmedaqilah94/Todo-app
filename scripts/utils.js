@@ -81,7 +81,7 @@ export const deleteTask = (icon) => {
   if (answer === false) return;
   let tasks = fetchData("tasks");
   const id = icon.dataset.num;
-  tasks = tasks.filter((task) => task.id != id);
+  tasks = tasks.filter((task) => task.id !== id);
   saveToDataB("tasks", tasks);
   renderTaskList(tasks);
 
@@ -96,7 +96,7 @@ export const deleteTask = (icon) => {
 export const toggleTask = (box) => {
   box.classList.toggle("checked");
   box.nextElementSibling.classList.toggle("task__text--completed");
-  let tasks = fetchData("tasks");
+  const tasks = fetchData("tasks");
   const id = box.dataset.num;
   const curentTask = tasks.find((task) => task.id == id);
   curentTask.isCompleted = !curentTask.isCompleted;
