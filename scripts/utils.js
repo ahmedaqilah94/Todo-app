@@ -26,7 +26,12 @@ export const toggleTheme = () => {
 };
 
 export const initDataOnStartup = () => {
-  fetchData("lightTheme") && toggleTheme();
+  const isLight = fetchData("lightTheme");
+  if (isLight === null) {
+    return;
+  } else if (isLight === true) {
+    toggleTheme();
+  }
   renderTaskList(fetchData("tasks"));
 };
 export const getLastTaskId = () => {
@@ -118,13 +123,9 @@ export const filterCompletedTasks = () => {
 
 export const deleteCompletedTasks = () => {
   const tasks = fetchData("tasks") || [];
-  tasks.forEach((task, index) => {
-    if (task.isCompleted) {
-      tasks.splice(index, 1);
-    }
-    saveToDataB("tasks", tasks);
-    renderTaskList(tasks);
-  });
+  const activeTasks = tasks.filter((task) => !task.isCompleted);
+  renderTaskList(activeTasks);
+  saveToDataB("tasks", activeTasks);
 };
 
 export const getItemsLeftCount = () => {
