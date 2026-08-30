@@ -35,12 +35,12 @@ export const initDataOnStartup = () => {
   renderTaskList(fetchData("tasks"));
 };
 export const getLastTaskId = () => {
-  let countId = 0;
+  let lastId = 0;
   const tasks = fetchData("tasks");
-  tasks.forEach(() => {
-    countId++;
-  });
-  return countId;
+  if (tasks) {
+    lastId = tasks[0].id;
+  }
+  return lastId;
 };
 export let taskId = getLastTaskId();
 export const addTask = () => {
@@ -81,7 +81,7 @@ export const deleteTask = (icon) => {
   if (answer === false) return;
   let tasks = fetchData("tasks");
   const id = icon.dataset.num;
-  tasks = tasks.filter((task) => task.id !== id);
+  tasks = tasks.filter((task) => task.id != id);
   saveToDataB("tasks", tasks);
   renderTaskList(tasks);
 
